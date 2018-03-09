@@ -1,0 +1,50 @@
+<h1>Cats, Todos, & Users</h1>
+<p>List of all the cats, todo tasks, and users in our database!</p>
+
+<h1>Cats</h1>
+<%= Cat.find_each do |cat| %>
+  <% if cat == nil %>
+    <% puts "No cats yet! :(" %>
+  <% else %>
+    <% if cat.name == nil %>
+      <% cat.name == "" %>
+      <%= puts "Give your cat a name!" %>
+    <% end %>
+    <%= puts "Name: " + cat.name %>
+  <% end %>
+<% end %>
+
+<h1>Todos</h1>
+<%= Todo.find_each do |todo| %>
+  <% if todo == nil %>
+    <% puts "You have no tasks! Yay" %>
+  <% else %>
+    <% if todo.tasks == nil %>
+      <% todo.tasks = "" %>
+      <%= puts "You entered a blank task lol." %>
+    <% end %>
+    <% if todo.finished == nil %>
+      <% todo.finished = "" %>
+      <%= puts "Mark task as finished or unfinished." %>
+    <% end %>
+    <%= puts todo.finished %>
+  <% end %>
+<% end %>
+
+<h1>Users</h1>
+<%= User.find_each do |user| %>
+  <% if user == nil %>
+    <% puts "There are no users." %>
+  <% else %>
+    <% if user.username == nil %>
+      <%= puts "Enter a username." %>
+    <% end %>
+    <% if user.email == nil %>
+      <%= puts "Enter an email." %>
+    <% end %>
+    <% if user.age == nil %>
+      <%= puts "Enter an age." %>
+    <% end %>
+    <%= puts "Username: " + user.username + ", Email: " + user.email + ", Age: " + user.age %>
+  <% end %>
+<% end %>
