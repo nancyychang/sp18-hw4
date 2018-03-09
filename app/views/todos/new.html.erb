@@ -1,11 +1,9 @@
-<%= form_tag todos_path do %>
-  <%= label_tag(:task_description, "Task Description") %>
-  <%= text_field_tag(:task_description) %>
+<%= form_for @todo do |f| %>
+  <%= f.label :tasks %>:
+  <%= f.text_field :tasks %>
 
-  <%= label_tag(:finished_or_not, "Finished?") %>
-  <%= text_field_tag(:finished_or_not) %>
+  <%= f.label :finished %>:
+  <%= f.check_box :finished, {}, "true", "false" %>
 
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
-  <%= submit_tag("Create Task") %>
+  <%= f.submit %>
 <% end %>

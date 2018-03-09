@@ -5,10 +5,16 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.create(todo_params)
-    redirect_to todos_path
+    redirect_to root_path
   end
 
   def index
     @todos = Todo.all
   end
+
+  private
+
+  def todo_params
+    params.require(:todo).permit(:tasks, :finished)
+  end 
 end

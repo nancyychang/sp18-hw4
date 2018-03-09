@@ -1,50 +1,23 @@
 <h1>Cats, Todos, & Users</h1>
 <p>List of all the cats, todo tasks, and users in our database!</p>
 
-<h1>Cats</h1>
-<%= Cat.find_each do |cat| %>
-  <% if cat == nil %>
-    <% puts "No cats yet! :(" %>
-  <% else %>
-    <% if cat.name == nil %>
-      <% cat.name == "" %>
-      <%= puts "Give your cat a name!" %>
-    <% end %>
-    <%= puts "Name: " + cat.name %>
-  <% end %>
+<h2>Cats</h2>
+<% @cats.each do |cat| %>
+  <b> Name: </b><%= cat.name %>
+  <br />
 <% end %>
 
-<h1>Todos</h1>
-<%= Todo.find_each do |todo| %>
-  <% if todo == nil %>
-    <% puts "You have no tasks! Yay" %>
-  <% else %>
-    <% if todo.tasks == nil %>
-      <% todo.tasks = "" %>
-      <%= puts "You entered a blank task lol." %>
-    <% end %>
-    <% if todo.finished == nil %>
-      <% todo.finished = "" %>
-      <%= puts "Mark task as finished or unfinished." %>
-    <% end %>
-    <%= puts todo.finished %>
-  <% end %>
+<h2>Todos</h2>
+<% @todos.each do |todo| %>
+  <b> Task: </b><%= todo.tasks %> <b> Finished? </b><%= todo.finished %>
+  <br />
 <% end %>
 
-<h1>Users</h1>
-<%= User.find_each do |user| %>
-  <% if user == nil %>
-    <% puts "There are no users." %>
-  <% else %>
-    <% if user.username == nil %>
-      <%= puts "Enter a username." %>
-    <% end %>
-    <% if user.email == nil %>
-      <%= puts "Enter an email." %>
-    <% end %>
-    <% if user.age == nil %>
-      <%= puts "Enter an age." %>
-    <% end %>
-    <%= puts "Username: " + user.username + ", Email: " + user.email + ", Age: " + user.age %>
-  <% end %>
+<h2>Users</h2>
+<% @users.each do |user| %>
+  <b> Username: </b><%= user.username %> <b> Email: </b><%= user.email %> <b> Age: </b><%= user.age %>
+  <br />
 <% end %>
+
+<br />
+<%= link_to 'Add To Todo List', todos_new_path %>

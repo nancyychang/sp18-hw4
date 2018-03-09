@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @cats = Cat.new
-    @users = User.new
-    @todos = Todo.new
+    @cats = Cat.all
+    @users = User.all
+    @todos = Todo.all
   end
 end
